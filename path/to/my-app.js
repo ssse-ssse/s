@@ -10,8 +10,8 @@ var barSwiper;
 
 function queryConfig() {
 	ptrContent = $$('.page[data-page="home"] .pull-to-refresh-content');
-	ptrContent.on('refresh', function(e) {
-		queryMenu(function() {
+	ptrContent.on('refresh', function (e) {
+		queryMenu(function () {
 			myApp.pullToRefreshDone();
 		})
 	});
@@ -25,7 +25,7 @@ function queryConfig() {
 	var date = localStorage.getItem('date');
 	if (!configJson || (new Date().getTime() - date > 1000 * 60 * 60 * 5)) {
 		var ver = queryVersion();
-		ajax('http://sses.gearhostpreview.com/index.js?v=' + ver, function(c) {
+		ajax('index.js?v=' + ver, function (c) {
 			localStorage.setItem('config', JSON.stringify(c));
 			localStorage.setItem('date', new Date().getTime());
 			nextQ(c);
@@ -54,7 +54,7 @@ function nextQ(c) {
 	queryMenu();
 }
 
-myApp.onPageInit('home', function(page) {
+myApp.onPageInit('home', function (page) {
 	queryConfig()
 });
 
@@ -68,9 +68,9 @@ function queryMenu(callback) {
 		if (item.children)
 			for (var j = 0; j < item.children.length; j++) {
 				var child = item.children[j];
-				 if(!child.hidden)
-				itemHTML +=
-					`<div class="col-25" onclick="gotoPage(this)" p="${item.goto}" i="${j}" d="${i}">
+				if (!child.hidden)
+					itemHTML +=
+						`<div class="col-25" onclick="gotoPage(this)" p="${item.goto}" i="${j}" d="${i}">
 					<img src="${child.img}" onerror="this.src='/img/timg10.png'"/>
 					<div>${child.name}</div></div>`;
 			}
@@ -97,14 +97,14 @@ function gotoPage(obj) {
 myApp.onPageInit('zhiboOnly', initPageChild);
 
 function queryVideos(cont, config, callback) {
-	ajax(config.url, function(result) {
+	ajax(config.url, function (result) {
 		var list = result;
 		var fs = config.list.split('.');
 		for (let key of fs) {
 			list = list[key];
 		}
 		fillRooms(cont, config, list, callback)
-	},config.name=='Anna'?"POST":"GET");
+	}, config.name == 'Anna' ? "POST" : "GET");
 }
 
 function fillRooms(cont, config, list, callback) {
@@ -162,7 +162,7 @@ function initPageChild(page) {
 		zhibopageSwiper.appendSlide(`<div class="swiper-slide"><img src="${item.img}" ></div>`);
 	}
 	var videoPageContentRefresh = $$(`.page[data-page="${page.name}"] .pull-to-refresh-content`);
-	videoPageContentRefresh.on('refresh', function(e) {
+	videoPageContentRefresh.on('refresh', function (e) {
 		nextInit(page, videoPageContentRefresh);
 	});
 	nextInit(page, videoPageContentRefresh);
@@ -171,18 +171,18 @@ function initPageChild(page) {
 function nextInit(page, cont) {
 	var config = page.query;
 	console.log(config)
-	queryVideos(cont, config, function() {
+	queryVideos(cont, config, function () {
 		myApp.pullToRefreshDone();
 	})
 }
 
 var currentPageIndex = 1;
-myApp.onPageInit('videoPage', function(page) {
+myApp.onPageInit('videoPage', function (page) {
 	var zhibopageSwiper = myApp.swiper(`.page[data-page="videoPage"] .swiper-container`, {
 		speed: 400,
 		direction: 'vertical',
-		onSlideChangeEnd: function(swiper) {
-			var videos=$$(`.page[data-page="videoPage"] .swiper-container .swiper-slide video`);
+		onSlideChangeEnd: function (swiper) {
+			var videos = $$(`.page[data-page="videoPage"] .swiper-container .swiper-slide video`);
 			for (var i = 0; i < videos.length; i++) {
 				videos[i].pause()
 			}
@@ -196,7 +196,7 @@ myApp.onPageInit('videoPage', function(page) {
 });
 
 function queryVideo(Swiper, conf, pageIndex) {
-	ajax(conf.url.replace('%s', pageIndex), function(res) {
+	ajax(conf.url.replace('%s', pageIndex), function (res) {
 		var list = res;
 		for (let s of conf.list.split('.')) {
 			list = list[s];
@@ -208,8 +208,8 @@ function queryVideo(Swiper, conf, pageIndex) {
 				if (conf.name == '抖阴') {
 					url = encrypt(url)
 				}
-				var img=item[conf.imgField];
-				img=img.substr(img.lastIndexOf('http'))
+				var img = item[conf.imgField];
+				img = img.substr(img.lastIndexOf('http'))
 				Swiper.appendSlide(
 					`<div class="swiper-slide"><video src="${url}" loop="loop"
 					  controls="controls"
@@ -218,7 +218,7 @@ function queryVideo(Swiper, conf, pageIndex) {
 				);
 			}
 		}
-	}, conf.name=='短视频'?'GET':'POST');
+	}, conf.name == '短视频' ? 'GET' : 'POST');
 }
 
 myApp.onPageInit('toolList', inittoolListPage);
