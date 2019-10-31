@@ -1,6 +1,6 @@
 var parser = new DOMParser();
 
-function parseFromString(res, css, attrName,attrName2) {
+function parseFromString(res, css, attrName, attrName2) {
 	var doc = res;
 	if (typeof res == 'string') doc = parser.parseFromString(res, "text/html");
 	if (css) {
@@ -10,14 +10,14 @@ function parseFromString(res, css, attrName,attrName2) {
 	}
 	if (attrName) {
 		if (doc.length || doc.length >= 0) {
-			doc=doc[0];
-		}		
+			doc = doc[0];
+		}
 		for (var i = 0; i < doc.attributes.length; i++) {
 			var attr = doc.attributes[i];
-			if (attr.nodeName == attrName&&!/^data/.test(attr.nodeValue)) {
+			if (attr.nodeName == attrName && !/^data/.test(attr.nodeValue)) {
 				return attr.nodeValue;
 			}
-			if (attr.nodeName == attrName2&&!/^data/.test(attr.nodeValue)) {
+			if (attr.nodeName == attrName2 && !/^data/.test(attr.nodeValue)) {
 				return attr.nodeValue;
 			}
 		}
@@ -27,7 +27,7 @@ function parseFromString(res, css, attrName,attrName2) {
 
 function ajax(url, success, method, dataType, data) {
 	$.ajax({
-		url: 'http://sses.gearhostpreview.com/?url='+url,
+		url: url,
 		headers: {
 			'upgrade-insecure-requests': 1,
 			http_app_version: "1.1.0",
@@ -98,7 +98,7 @@ function encryptSb1(paramString) {
 	var arrayOfByte = md5.digest(stringToBytes(paramString));
 	var i = arrayOfByte.length;
 	var stringBuilder = "";
-	for (var b = 0;; b++) {
+	for (var b = 0; ; b++) {
 		if (b < i) {
 			var num = arrayOfByte[b];
 			var str = num.toString(16);
@@ -135,7 +135,7 @@ var player;
 
 function playVideotoAddres(address) {
 	// console.log(address);
-	if(!address){
+	if (!address) {
 		myApp.alert('对不起，未获取到播放地址，请播放其他视频！', '错误!');
 		return
 	}
@@ -154,7 +154,7 @@ function playVideotoAddres(address) {
 function queryListDataCom(href, index, resultType, queryUrl, queryListFun, queryAddressFun, queryTitleFun, queryImgFun,
 	cardClickFun) {
 	var itemHTML = '';
-	queryData(1, function() {
+	queryData(1, function () {
 		$(`.page[data-page="toolList"] .my-page-content[i="${index}"]`).append(itemHTML);
 		$(`.page[data-page="toolList"] .my-page-content[i="${index}"] .card`).unbind('click');
 		$(`.page[data-page="toolList"] .my-page-content[i="${index}"] .card`).on('click', cardClickFun);
@@ -166,7 +166,7 @@ function queryListDataCom(href, index, resultType, queryUrl, queryListFun, query
 		var pageIndex = parseInt(pageIndex || 1)
 		var next = pageIndex + 1;
 		var url = queryUrl.replace('${href}', href.replace('.html', '')).replace('${pageIndex}', pageIndex);
-		ajax(url, function(res) {
+		ajax(url, function (res) {
 			if (resultType == 'json') res = JSON.parse(res);
 			var list = queryListFun(res);
 			for (var i = 0; i < list.length; i++) {
@@ -174,7 +174,7 @@ function queryListDataCom(href, index, resultType, queryUrl, queryListFun, query
 				var address = queryAddressFun(item);
 				var title = queryTitleFun(item);
 				var imgSrc = queryImgFun(item);
-				if(item.isvip=='1'){
+				if (item.isvip == '1') {
 					continue;
 				}
 				itemHTML +=
@@ -194,7 +194,7 @@ function queryListDataCom(href, index, resultType, queryUrl, queryListFun, query
 	}
 }
 
-function fillToolBar(swiper,ListFun,hrefFun,textFun,clickFun ) {
+function fillToolBar(swiper, ListFun, hrefFun, textFun, clickFun) {
 	var tabs = ListFun();
 	var html = '';
 	var j = 0;
@@ -219,10 +219,10 @@ function fillToolBar(swiper,ListFun,hrefFun,textFun,clickFun ) {
 	$('.page[data-page="toolList"] .my-tab-header div div:nth-child(1)').click()
 }
 
-function queryScript(res,key){
-	var scripts=parseFromString(res,'script');
+function queryScript(res, key) {
+	var scripts = parseFromString(res, 'script');
 	for (let s of scripts) {
-		if(s.text.indexOf(key)!=-1){
+		if (s.text.indexOf(key) != -1) {
 			return s.text;
 		}
 	}
