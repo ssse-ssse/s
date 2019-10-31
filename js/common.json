@@ -1,0 +1,44 @@
+{
+	"DKS": {
+		"url": "http://app.hhhlaa.top/mobile/live/tuijian",
+		"list": "data.lists",
+		"imgField":"img",
+		"addressField":"address",
+		"titleField":"title",
+		"hasChildList":false
+	},
+	"DKSALL": {
+		"url": "http://app.hhhlaa.top/mobile/live/quanbu",
+		"list": "data.lists",
+		"imgField":"img",
+		"addressField":"address",
+		"titleField":"title",
+		"hasChildList":false
+	},
+	"TAI": {
+		"url": "http://afi0i.cn/api_taiyang.php",
+		"list": "data",
+		"imgField":"img",
+		"addressField":"latform_type",
+		"titleField":"title",
+		"hasChildList":true,
+		"ChildUrl":"http://pay.fwlcb.cn/api_taiyang.php?pt=&pt=%s",
+		"childList":"data",
+		"childimgField":"img",
+		"childaddressField":"url",
+		"childtitleField":"title"
+	},
+	"BEI": {
+		"url": "http://api.vipmisss.com:81/xcdsw/json.txt",
+		"list": "pingtai",
+		"imgField":"xinimg",
+		"addressField":"address",
+		"titleField":"title",
+		"hasChildList":true,
+		"ChildUrl":"http://api.vipmisss.com:81/xcdsw/%s",
+		"childList":"zhubo",
+		"childimgField":"img",
+		"childaddressField":"address",
+		"childtitleField":"title"
+	}
+}

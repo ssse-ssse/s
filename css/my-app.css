@@ -1,0 +1,221 @@
+img {
+	width: 100%
+}
+
+.page[data-page] .swiper-container {
+	background: white;
+	z-index: 2;
+	height: 10rem;
+	line-height: 10rem;
+}
+
+.page[data-page] .pull-to-refresh-content {
+	height: -webkit-calc(100% - 10rem + 44px);
+	height: -moz-calc(100% - 10rem + 44px);
+	height: calc(100% - 10rem + 44px);
+}
+
+.page[data-page] .row {
+	-webkit-justify-content: start;
+	justify-content: start;
+}
+
+.page[data-page] .content-block {
+	margin: auto;
+}
+
+.page[data-page] .card {
+	margin: 10px auto;
+}
+
+.row {
+	margin-bottom: 15px;
+}
+
+div[class*="col-"] {
+	text-align: center;
+	color: red;
+	padding: .5rem 1rem;
+	font-size: .7rem;
+	white-space: nowrap;
+}
+
+div[class*="col-"] div {
+	overflow: hidden;
+}
+
+.photo {
+	height: 3.4rem;
+}
+
+.page[data-page="videoPage"] .pull-to-refresh-content {
+	height: -webkit-calc(100% + 44px);
+	height: -moz-calc(100% + 44px);
+	height: calc(100% + 44px);
+}
+
+.page[data-page="videoPage"] .content-block {
+	margin: 0;
+	padding: 0;
+	height: calc(100% - 44px);
+}
+
+
+.page[data-page="searchCili"] .swiper-container,
+.page[data-page="toolList"] .swiper-container,
+.page[data-page="videoPage"] .swiper-container {
+	height: 100%;
+	line-height: 100%;
+}
+
+video {
+	width: 100%;
+	height: 100%;
+}
+
+.panel {
+	width: 5rem
+}
+
+body.with-panel-left-reveal .views {
+	-webkit-transform: translate3d(5rem, 0, 0);
+	transform: translate3d(5rem, 0, 0)
+}
+
+.panel-mask {
+	display: none;
+}
+
+body.with-panel-left-reveal .panel-mask {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 5rem;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 6000;
+	opacity: .3;
+}
+
+.panel .list-block div {
+	color: white;
+	padding-top: .2rem;
+	text-align: center;
+	padding-bottom: .4rem;
+	border-bottom: 1px solid;
+	position: relative;
+}
+
+.panel .list-block div.active:before {
+	content: ' ';
+	position: absolute;
+	width: calc(100% - 8px);
+	height: calc(100% - 8px);
+	top: 0;
+	left: 0;
+	border: 4px solid orange;
+}
+
+.my-tab-header {
+	overflow: auto;
+}
+
+.my-tab-header>div {
+	display: flex;
+}
+
+.my-tab-header div div {
+	-webkit-flex-shrink: 0;
+	-ms-flex: 0 0 auto;
+	flex-shrink: 0;
+	width: 4rem;
+	padding: 2px 0;
+	text-align: center;
+	position: relative;
+	white-space: nowrap;
+	border-bottom: 2px solid transparent;
+}
+
+.my-tab-header div div.active {
+	border-bottom-color: green;
+}
+
+.page[data-page="searchCili"] .card,
+.page[data-page="toolList"] .card {
+	margin: 10px;
+}
+
+.floating-button.color-pink,
+.floating-button.theme-pink,
+.theme-pink .floating-button {
+	color: #fff;
+	background: #e91e63;
+}
+
+.list-block .item-link.list-button.color-pink,
+.tabbar a.active.color-pink,
+a.color-pink {
+	color: #e91e63;
+}
+
+.color-pink {
+	color: #e91e63;
+}
+
+.actions-modal-button,
+.button,
+.floating-button,
+.label-checkbox,
+.label-radio,
+.modal-button,
+.ripple,
+.tab-link,
+a.item-link,
+a.link {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+i.icon.icon-plus {
+	width: 24px;
+	height: 24px;
+	background-image: url("../img/refresh.svg")
+}
+
+.floating-button {
+	color: #fff;
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	z-index: 1500;
+	overflow: hidden;
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	background-color: #2196f3;
+}
+
+.page[data-page="searchCili"] .card .card-header {
+	overflow: hidden;
+	white-space: nowrap;
+}
+.page[data-page="searchCili"] .card .card-content div {
+    font-size: .8rem;
+    color: #888;
+}

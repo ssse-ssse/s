@@ -1,0 +1,105 @@
+.mainTabContent {
+	height: calc(100% - 2rem);
+}
+
+.buttons-tab {
+	z-index: 11;
+}
+
+#tab4 .buttons-tab {
+    overflow: auto;
+}
+#tab3 .content,
+#homePage .pull-to-refresh-content {
+	top: 0;
+	bottom: 2rem;
+}
+
+#tab3 .content {
+	top: 2rem;
+}
+
+img {
+	width: 90%;
+}
+
+.card-content {
+	text-align: center;
+}
+
+.itemTitle {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.itemImg {
+	height: 4.5rem;
+	overflow: hidden;
+}
+
+.infinite-scroll-preloader {
+	margin-top: -20px;
+}
+
+#tab2>.content {
+	bottom: 2rem;
+	height: calc(100% - 2rem);
+}
+
+#tab2 .swiper-container {
+	background: black;
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide>div:nth-child(1) {
+	height: 100%;
+}
+
+.swiper-slide video {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide>div:nth-child(2) {
+	position: absolute;
+	bottom: 4rem;
+	display: flex;
+	font-size: .5rem;
+	word-wrap: break-word;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.swiper-slide>div:nth-child(2)>div:nth-child(1),
+.swiper-slide>div:nth-child(2)>div:nth-child(1) img {
+	border-radius: 99em;
+	width: 2rem;
+	height: 2rem;
+}
+
+.swiper-slide>div:nth-child(2)>div:nth-child(2) {
+	margin: 0 .5rem;
+	color: white;
+}
+
+.swiper-slide>div:nth-child(2)>div:nth-child(2)>div:nth-child(1) {
+	font-weight: bold;
+}
+
+.swiper-slide>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) {
+	font-size: .3rem;
+}
+
+.swiper-container {
+	padding-bottom: 0;
+}
+
+#tab3 .card-content {
+	text-align: left;
+}
+
+#tab4 .tabs .tab {
+	top: 2rem;
+	bottom: 2rem;
+}
